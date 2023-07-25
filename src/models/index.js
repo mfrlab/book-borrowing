@@ -19,3 +19,12 @@ const db = new Sequelize(dbConfig[env].database, dbConfig[env].username, dbConfi
 module.exports = {
     db
 }
+
+// import model
+const User = require('./User')
+const Book = require('./Book')
+const Loan = require('./Loan')
+
+module.exports = {
+    db, User, Book, Loan
+}
