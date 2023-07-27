@@ -6,7 +6,7 @@ class User extends Model {
 }
 
 User.ROLE = {
-    ADMINL: 'Admin',
+    ADMIN: 'Admin',
     MEMBER: 'Member'
 }
 

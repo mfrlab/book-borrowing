@@ -25,6 +25,23 @@ const User = require('./User')
 const Book = require('./Book')
 const Loan = require('./Loan')
 
+Loan.belongsTo(Book, {
+    onDelete: 'RESTRICT',
+    foreignKey: 'idBook'
+})
+Loan.belongsTo(User, {
+    onDelete: 'RESTRICT',
+    foreignKey: 'idMember'
+})
+Book.hasMany(Loan, {
+    onDelete: 'RESTRICT',
+    foreignKey: 'idBook'
+})
+User.hasMany(Loan, {
+    onDelete: 'RESTRICT',
+    foreignKey: 'idMember'
+})
+
 module.exports = {
     db, User, Book, Loan
 }

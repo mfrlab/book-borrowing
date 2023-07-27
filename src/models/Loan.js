@@ -10,6 +10,9 @@ Loan.STATUS = {
     INACTIVE: 'Inactive'
 }
 
+// threshold in day
+Loan.THRESHOLD = 1000 * 60 * 60 * 24 * 2
+
 Loan.init({
     id: {
         allowNull: false,

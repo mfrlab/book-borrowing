@@ -1,12 +1,25 @@
 const express = require('express')
 const cors = require('cors')
 const { db } = require('./src/models')
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
+const flash = require('connect-flash')
 
 const app = express()
+
+app.use(cookieParser('secret'))
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
+app.use(flash())
 
 var corsOptions = {
     origin: "http://localhost:8000"
 }
+
+app.set('view engine', 'ejs')
 
 app.use(cors(corsOptions))
 
@@ -17,6 +30,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 // create route
+app.use('/', require('./src/routes'))
 
 db.sync()
 .then(() => {
