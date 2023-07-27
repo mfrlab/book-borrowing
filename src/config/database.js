@@ -3,7 +3,7 @@ module.exports = {
         hostname: 'localhost',
         username: process.env.USERNAME || 'root',
         password: process.env.PASSWORD || null,
-        database: process.env.DATABASE,
+        database: process.env.DATABASE || 'book_borrowing',
         dialect: 'mysql',
         pool: {
             max: 5,

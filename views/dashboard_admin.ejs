@@ -43,9 +43,15 @@
                             <td><%= book.publisher %></td>
                             <td><%= book.writer %></td>
                             <td><%= book.status %></td>
-                            <td><%= book.Loans[book.Loans.length-1].loanDate %></td>
-                            <td><%= book.Loans[book.Loans.length-1].returnDueDate %></td>
-                            <td><%= book.Loans[book.Loans.length-1].returnDate %></td>
+                            <% if (book.Loans.length !== 0) { %>
+                                <td><%= book.Loans[book.Loans.length-1].loanDate %></td>
+                                <td><%= book.Loans[book.Loans.length-1].returnDueDate %></td>
+                                <td><%= book.Loans[book.Loans.length-1].returnDate %></td>
+                            <% } else { %>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            <% } %>
                         </tr>
                     <% }) %>
                         
